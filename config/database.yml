@@ -52,7 +52,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: dislexia_test
+  database: dislexia_development
+  host: localhost
   username: dariuszwojtowicz
   password: magisterka
 
@@ -77,6 +78,7 @@ test:
 #
 production:
   <<: *default
-  database: dislexia_production
+  database: dislexia_development
+  host: localhost
   username: dariuszwojtowicz
   password: magisterka

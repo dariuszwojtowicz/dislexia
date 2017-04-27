@@ -1,0 +1,13 @@
+<% provide(:title, "Zadania - poziom: <%= @level.name %>") %>
+<div class="center jumbotron">
+  	<h1>Zadania</h1>
+    <div id="tasks">
+      <ul>
+        <% @tasks.each do |task| %>
+          <li>
+            <a href="/tasks/<%= task.id %>"><span class="name"><%= task.task_type %></span></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>

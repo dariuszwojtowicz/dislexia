@@ -13,6 +13,15 @@
   	Aby rozpocząć przygodę z Dislexią trzeba się zarejestrować. <span>Do dzieła!</span>
     </h2>
   <% else %>
-    <h1>Zadanka Levele Poziomy Huehue</h1>
+    <h1>Poziomy gry</h1>
+    <div id="levels">
+      <ul>
+        <% @levels.each do |level| %>
+          <li>
+            <a href="/levels/<%= level.id %>"><span class="name"><%= level.name %></span><span class="points"><%= @points[level.id] || 0 %>/<%= level.points * 5 * 5 %></span></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 </div>

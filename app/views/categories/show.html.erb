@@ -1,0 +1,14 @@
+<% provide(:title, "Kategoria: #{@category.title}") %>
+<div class="center jumbotron">
+  	<h1>Kategoria: <%= @category.title %></h1>
+    <div id="task">
+      <h2 class="title"><%= eval(@task["content"])[:title] %></h2>
+      <h3 class="content"><%= eval(@task["content"])[:content] %></h3>
+      <br /><br /><br /><br />
+      <form class="answer" id="answer" action="/tasks/<%= @task["id"] %>/answer" accept-charset="UTF-8" method="post">
+      	<%= token_tag %> 
+      	Odpowiedź: <input name="user_answer" type="text" required>
+      	<input name="answer_button" value="Odpowiadam!" class="btn btn-primary btn-answer" type="submit">
+	  </form>
+    </div>
+</div>

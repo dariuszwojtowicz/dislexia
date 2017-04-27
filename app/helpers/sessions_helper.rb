@@ -10,6 +10,67 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  def get_level_points
+    user = current_user
+    if user == nil
+      return 0
+    end
+    points = {}
+    select_sql = "select l.id, sum(l.points)
+      from user_tasks ut
+      join tasks t on ut.task_id = t.id
+      join categories c on c.id = t.category_id
+      join levels l on l.id = c.level_id
+      group by l.id, success, user_id
+      having success = 1 and user_id = #{user.id}
+      order by l.id"
+    db_points = ActiveRecord::Base.connection.execute select_sql
+    db_points = db_points.to_a  
+    db_points.each do |row|
+      points[row["id"]] = row["sum"]
+    end
+    return points 
+  end
+
+  def user_all_points
+    user = current_user
+    if user == nil
+      return 0
+    end
+    select_sql = "select sum(l.points)
+      from user_tasks ut
+      join tasks t on ut.task_id = t.id
+      join categories c on c.id = t.category_id
+      join levels l on l.id = c.level_id
+      group by success, user_id
+      having success = 1 and user_id = #{user.id}"
+    db_points = ActiveRecord::Base.connection.execute select_sql
+    db_points = db_points.to_a  
+    return db_points[0]["sum"] 
+  end
+
+  def get_category_points(level_id)
+    user = current_user
+    if user == nil
+      return {}
+    end
+    points = {}
+    select_sql = "select c.id, sum(l.points)
+      from user_tasks ut
+      join tasks t on ut.task_id = t.id
+      join categories c on c.id = t.category_id
+      join levels l on l.id = c.level_id
+      group by c.id, success, user_id, l.id
+      having success = 1 and user_id = #{user.id} and l.id = #{level_id}
+      order by c.id"
+    db_points = ActiveRecord::Base.connection.execute select_sql
+    db_points = db_points.to_a 
+    db_points.each do |row|
+      points[row["id"]] = row["sum"]
+    end
+    return points 
+  end
+
   def current_user?(user)
     user == current_user
   end

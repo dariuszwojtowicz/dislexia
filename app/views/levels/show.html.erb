@@ -1,0 +1,13 @@
+<% provide(:title, "Poziom: #{@level.name}") %>
+<div class="center jumbotron">
+  	<h1>Kategorie zadań - Poziom <%= @level.name %></h1>
+    <div id="categories">
+      <ul>
+        <% @categories.each do |category| %>
+          <li>
+            <a href="/categories/<%= category.id %>"><span class="name"><%= category.title %></span><span class="points"><%= @points[category.id] || 0 %>/<%= @level.points * 5 %></span></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>

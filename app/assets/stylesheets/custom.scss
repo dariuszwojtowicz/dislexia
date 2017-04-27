@@ -168,3 +168,48 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+div#levels, div#categories {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    li {
+      height: 60px;
+      margin-bottom: 15px;
+      font-size: 30px;
+      width: 100%;
+      a {
+        padding-top: 9px;
+        height: 100%;
+        display: inline-block;
+        background-color: #2175bc;
+        color: #fff;
+        text-decoration: none;
+        width: 100%;
+      }
+      span {
+        width: 50%;
+      }
+      span.name {
+        float: left;
+        text-align: left;
+        padding-left: 20px;
+      }
+      span.points {
+        float: right;
+        text-align: right;
+        padding-right: 20px;
+      }
+      a:hover {
+        background-color: #2586d7;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.btn-answer {
+  width: 120px;
+}
