@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post   '/signup',  to: 'users#create'
   root   'home_pages#home'
   get 	 'home_pages/home'
+  get    '/about',   to: 'home_pages#about'
+  get    '/rankings',   to: 'home_pages#rankings'
   resources :users
 end

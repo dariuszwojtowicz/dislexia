@@ -10,5 +10,10 @@
       	Odpowiedź: <input name="user_answer" type="text" required>
       	<input name="answer_button" value="Odpowiadam!" class="btn btn-primary btn-answer" type="submit">
 	  </form>
+    <div class="center example">
+      <h3 class="example">Przykład</h3>
+      <p class="example_title"><%= eval(@category["content"])[:example_title] %></p>
+      <p class="example_content"><%= eval(@category["content"])[:example_content] %></p>
+      <p class="example_answer">Poprawna odpowiedź: <%= eval(@category["content"])[:example_answer] %></p>
     </div>
 </div>

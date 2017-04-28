@@ -10,6 +10,14 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Proszę się zalogować."
+      redirect_to login_url
+    end
+  end
+
   def get_level_points
     user = current_user
     if user == nil
@@ -32,8 +40,10 @@ module SessionsHelper
     return points 
   end
 
-  def user_all_points
-    user = current_user
+  def user_all_points(user = current_user)
+    if user == nil
+      user = current_user
+    end
     if user == nil
       return 0
     end
@@ -45,7 +55,10 @@ module SessionsHelper
       group by success, user_id
       having success = 1 and user_id = #{user.id}"
     db_points = ActiveRecord::Base.connection.execute select_sql
-    db_points = db_points.to_a  
+    db_points = db_points.to_a 
+    if db_points.size == 0
+      return 0
+    end
     return db_points[0]["sum"] 
   end
 

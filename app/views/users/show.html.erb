@@ -1,22 +1,24 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <p><%= @user.login %></p>
-        <%= link_to "Zmień informacje o sobie", edit_user_path(current_user) %>
-      </h1>
-    </section>
-    <div id="user_info">
-    	<ul>
-      		<li>Imię: <%= @user.name || "Nie podano" %></li>
-      		<li>Nazwisko: <%= @user.surname || "Nie podano" %></li>
-      		<li>Email: <%= @user.email || "Nie podano" %></li>
-      		<li>Rok urodzenia: <%= @user.year || "Nie podano" %></li>
-      		<li>Poziom: <%= @user.level || "Użytkownik nie jest graczem" %></li>
-          <li>Liczba punktow: <%= user_all_points || "Użytkownik nie jest graczem" %></li>
-      	</ul>
-    </div>
-  </aside>
+<div class="center jumbotron show_user">
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+          <%= gravatar_for @user %>
+          <h1><%= @user.login %></h1>
+          <% if current_user.id == @user.id %>
+            <%= link_to "Zmień informacje o sobie", edit_user_path(current_user) %>
+          <% end %>
+      </section>
+      <div id="user_info">
+      	<ul>
+        		<li>Imię: <%= @user.name || "Nie podano" %></li>
+        		<li>Nazwisko: <%= @user.surname || "Nie podano" %></li>
+        		<li>Email: <%= @user.email || "Nie podano" %></li>
+        		<li>Rok urodzenia: <%= @user.year || "Nie podano" %></li>
+        		<li>Poziom: <%= @user.level || "Użytkownik nie jest graczem" %></li>
+            <li>Liczba punktow: <%= user_all_points(@user) || "Użytkownik nie jest graczem" %></li>
+        	</ul>
+      </div>
+    </aside>
+  </div>
 </div>

@@ -1,0 +1,33 @@
+<% provide(:title, "Rankingi") %>
+<div class="center jumbotron">
+  	<h1>Rankingi</h1>
+    <div id="rankings">
+      <div class="ranking global"><span class="ranking_title">Ranking wszechczasów</span>
+        <ul>
+          <% @global_ranking.each_with_index do |user, index| %>
+            <li>
+               <span class="position"><%= index + 1 %>.</span><a href="/users/<%= user["id"] %>"><span class="user"><%= user["login"] %></span></a><span class="points"><%= user["points"] %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="ranking month"><span class="ranking_title">Ranking miesiąca</span>
+        <ul>
+          <% @month_ranking.each_with_index do |user, index| %>
+            <li>
+               <span class="position"><%= index + 1 %>.</span><a href="/users/<%= user["id"] %>"><span class="user"><%= user["login"] %></span></a><span class="points"><%= user["points"] %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="ranking day"><span class="ranking_title">Ranking dnia</span>
+        <ul>
+          <% @day_ranking.each_with_index do |user, index| %>
+            <li>
+              <span class="position"><%= index + 1 %>.</span><a href="/users/<%= user["id"] %>"><span class="user"><%= user["login"] %></span></a><span class="points"><%= user["points"] %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+</div>

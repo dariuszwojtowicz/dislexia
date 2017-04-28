@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$gray-high-light: #393737;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -212,4 +213,60 @@ div#levels, div#categories {
 
 .btn-answer {
   width: 120px;
+}
+
+div.center.example {
+  background-color: $gray-high-light;
+  color: white;
+  border-radius: 6px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 60px;
+}
+
+.ranking {
+  background-color: $gray-high-light;
+  display: inline-block;
+  width: 33%;
+  text-align: left;
+  color: white;
+  vertical-align: top;
+  height: 300px;
+}
+
+.ranking ul {
+  list-style: none;
+}
+
+.ranking_title {
+  text-align: center;
+  width: 100%;
+  float: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.jumbotron.center.show_user #user_info {
+    text-align: left;
+    padding-top: 15px;
+}
+
+.jumbotron.center.show_user a {
+    text-align: left;
+    display: block;
+}
+
+.jumbotron.center.show_user #user_info ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.ranking ul li a {
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+.ranking ul li .points {
+  padding-right: 120px;
+  float: right;
 }

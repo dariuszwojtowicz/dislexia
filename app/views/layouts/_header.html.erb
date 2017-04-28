@@ -6,8 +6,8 @@
 	  		<% if logged_in? %>
 	          <li><%= link_to "Z", '/' %></li>
 	          <li><%= link_to "P", current_user %></li>
-	          <li><%= link_to "R", '#' %></li>
-	          <li><%= link_to "O", '#' %></li>
+	          <li><%= link_to "R", '/rankings' %></li>
+	          <li><%= link_to "O", '/about' %></li>
 	          <li><%= link_to "Wyloguj", logout_path, method: "delete" %></li>
 	        <% else %>
 	          <li><%= link_to "Zaloguj", login_path %></li>

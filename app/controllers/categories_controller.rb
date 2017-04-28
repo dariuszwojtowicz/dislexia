@@ -19,14 +19,6 @@ class CategoriesController < ApplicationController
       category_tasks = category_tasks.to_a  
       return category_tasks[rand(category_tasks.size)]
     end
-      
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Proszę się zalogować."
-        redirect_to login_url
-      end
-    end
 end
 
 

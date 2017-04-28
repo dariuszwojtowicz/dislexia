@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.level = 1
     if @user.save
       log_in @user
       flash[:success] = "Witamy w aplikacji Dislexia!"
@@ -42,14 +43,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:login, :name, :surname, :year, :email, :password, :password_confirmation)
-    end
-
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Proszę się zalogować."
-        redirect_to login_url
-      end
     end
 
     def correct_user
