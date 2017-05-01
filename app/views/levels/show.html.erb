@@ -4,8 +4,8 @@
     <div id="categories">
       <ul>
         <% @categories.each do |category| %>
-          <li>
-            <a href="/categories/<%= category.id %>"><span class="name"><%= category.title %></span><span class="points"><%= @points[category.id] || 0 %>/<%= @level.points * 5 %></span></a>
+          <li class="<%= (@points[category.id] || 0) ==  @level.points * 5 ? "locked" : "unlocked" %>">
+            <a href="<%= (@points[category.id] || 0) ==  @level.points * 5 ? "#" : "/categories/" + category.id.to_s %>"><span class="name"><%= category.title %></span><span class="points"><%= @points[category.id] || 0 %>/<%= @level.points * 5 %></span></a>
           </li>
         <% end %>
       </ul>

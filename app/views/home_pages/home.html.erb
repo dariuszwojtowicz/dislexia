@@ -17,8 +17,8 @@
     <div id="levels">
       <ul>
         <% @levels.each do |level| %>
-          <li>
-            <a href="/levels/<%= level.id %>"><span class="name"><%= level.name %></span><span class="points"><%= @points[level.id] || 0 %>/<%= level.points * 5 * 5 %></span></a>
+          <li class="<%= level.id == current_user.level ? "unlocked" : "locked" %>">
+            <a href="<%= level.id == current_user.level ? "/levels/" + level.id.to_s  : "#" %>"><span class="name"><%= level.name %></span><span class="points"><%= @points[level.id] || 0 %>/<%= level.points * 5 * 5 %></span></a>
           </li>
         <% end %>
       </ul>

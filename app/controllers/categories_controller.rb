@@ -1,9 +1,17 @@
 class CategoriesController < ApplicationController
   before_action :logged_in_user, only: [:show]
   def show
-    category_id = params[:id]
-    @task = get_task(category_id)
+    category_id = params[:id]    
     @category = Category.find(category_id)
+    @level = Level.find(@category.level_id)
+    max_points = 5 * @level.points
+    categories_points = get_category_points(@category.level_id)    
+    if categories_points[params[:id].to_i] == max_points
+      flash[:danger] = "Ta kategoria została ukończona."
+      redirect_to "/levels/" + @category.level_id.to_s
+      return
+    end
+    @task = get_task(category_id)
   end
 
   private

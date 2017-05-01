@@ -1,5 +1,5 @@
 class HomePagesController < ApplicationController	
-before_action :logged_in_user, only: [:about]
+before_action :logged_in_user, only: [:about, :rankings]
   def home
   	@levels = Level.all
   	@points = get_level_points

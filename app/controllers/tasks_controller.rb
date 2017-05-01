@@ -24,10 +24,11 @@ class TasksController < ApplicationController
     
     if success == 1
     	flash[:success] = "Poprawna odpowiedź ;)"
+      redirect_to "/levels/" + @category.level_id.to_s
     else
-    	flash[:danger] = "Zła odpowiedź ;("
+    	flash[:danger] = "Zła odpowiedź ;( Spróbuj jeszcze raz ;)"
+      redirect_to "/categories/" + @category.id.to_s
     end
-    redirect_to root_url
   end
 
 

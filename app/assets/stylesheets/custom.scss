@@ -176,6 +176,16 @@ div#levels, div#categories {
     margin: 0;
     padding: 0;
     border: none;
+    li.locked a {
+      background-color: $gray-high-light;
+    }
+    li.unlocked a {
+      background-color: #2175bc;
+    }
+    li.unlocked a:hover {
+      background-color: #2586d7;
+      color: #fff;
+    }
     li {
       height: 60px;
       margin-bottom: 15px;
@@ -185,7 +195,6 @@ div#levels, div#categories {
         padding-top: 9px;
         height: 100%;
         display: inline-block;
-        background-color: #2175bc;
         color: #fff;
         text-decoration: none;
         width: 100%;
@@ -202,10 +211,6 @@ div#levels, div#categories {
         float: right;
         text-align: right;
         padding-right: 20px;
-      }
-      a:hover {
-        background-color: #2586d7;
-        color: #fff;
       }
     }
   }
