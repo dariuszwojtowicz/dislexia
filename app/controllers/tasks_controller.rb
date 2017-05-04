@@ -132,6 +132,130 @@ class TasksController < ApplicationController
           return 0
         end
         return 1
+      elsif type == "find_words_in_words"
+        task_answers = task_answer.split(",")
+        user_answers = user_answer.split(",")
+        if user_answers.size != 5
+          return 0
+        end
+        used_users_answers = {}
+        user_answers.each do |ua|
+          ua.strip!
+          ua.downcase!
+          if used_users_answers[ua] != nil
+            return 0
+          end
+          used_users_answers[ua] = 1
+          ua_equal_ta = 0
+          ua_part_of_ta = 0
+          task_answers.each do |ta|
+            if ua == ta
+              ua_equal_ta = 1
+            end
+            if ta.index(ua) != nil
+              ua_part_of_ta = 1
+            end
+          end
+          if ua_equal_ta == 1 || ua_part_of_ta == 0
+            return 0
+          end
+          select_sql = "select *
+            from words
+            where words =  'malezja'"
+          ua_is_in_db_words = ActiveRecord::Base.connection.execute select_sql
+          ua_is_in_db_words = ua_is_in_db_words.to_a  
+          if ua_is_in_db_words.size == 0
+            return 0
+          end
+        end
+        return 1
+      elsif type == "divide_text"
+        task_answers = task_answer.split(" ")
+        user_answers = user_answer.split(" ")
+        user_answers.each_with_index do |ua, index|
+          ua.strip!
+          ua.downcase!
+          ua.gsub! ',', ''
+          ua.gsub! '.', ''
+          ta = task_answers[index]
+          ta.strip!
+          ta.downcase!          
+          if ua != ta
+            return 0
+          end
+        end
+        return 1
+      elsif type == "syllable"
+        task_answers = task_answer.split(",")
+        user_answers = user_answer.split(",")
+        user_answers.each_with_index do |ua, index|
+          ua.strip!
+          ua.downcase!
+          ta = task_answers[index]
+          ta.strip!
+          ta.downcase!
+          ta_syllable = ta.split(" ")
+          ua_syllable = ua.split(" ")
+          ua_syllable.each_with_index do |uas, index2|
+            uas.strip!
+            uas.downcase!
+            tas = ta_syllable[index2]
+            tas.strip!
+            tas.downcase!
+            if uas != tas
+              return 0
+            end
+          end
+        end
+        return 1
+      elsif type == "remove_words"
+        task_answers = task_answer.split(" ")
+        user_answers = user_answer.split(" ")
+        user_answers.each_with_index do |ua, index|
+          ua.strip!
+          ua.downcase!
+          ta = task_answers[index]
+          ta.strip!
+          ta.downcase!          
+          if ua != ta
+            return 0
+          end
+        end
+        return 1
+      elsif type == "new_words"
+        allowed_letters = {}
+        user_answers = user_answer.split(",")
+        if user_answers.size != 5
+          return 0
+        end
+        task_answer.split("").each do |letter|
+          allowed_letters[letter] = 1
+        end
+
+        used_users_answers = {}
+        user_answers.each do |ua|
+          ua.strip!
+          ua.downcase!
+          if used_users_answers[ua] != nil
+            return 0
+          end
+          used_users_answers[ua] = 1
+          
+          ua.split("").each do |ua_letter|
+            if allowed_letters[ua_letter] == nil
+              return 0
+            end
+          end
+          select_sql = "select *
+            from words
+            where words =  'malezja'"
+          ua_is_in_db_words = ActiveRecord::Base.connection.execute select_sql
+          ua_is_in_db_words = ua_is_in_db_words.to_a  
+          if ua_is_in_db_words.size == 0
+            return 0
+          end
+        end
+        return 1
       else
       	return 0
       end

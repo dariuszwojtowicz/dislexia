@@ -4,7 +4,8 @@ User.create!(name:  "Super",
              email: "darospeed1992@gmail.com",
              password:              "sony4401",
              password_confirmation: "sony4401",
-             admin: true)
+             admin: true,
+             level: 1)
 
 Level.create!(name:  "Łatwy",
 			 points: 3)
@@ -53,6 +54,46 @@ Category.create!(name:  "add_beginnings",
 			 	:example_title => "Do podanych części wyrazów dopisz początki, tak, aby powstały rzeczowniki i wypisz je po przecinku.",
 			 	:example_content  => "Wyrazy: -bel , -rko , -żko , -ska , -wan .",
 			 	:example_answer => "kabel, wiaderko, łóżko, deska, dywan"
+ 		 	 }.to_s)
+Category.create!(name:  "find_words_in_words",
+			 level_id: "2",
+			 title: "Słowa ukryte w słowach",
+			 content: {
+			 	:example_title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:example_content  => "Wyrazy: waleń, obibok, zlewozmywak, słońce, kotwica.",
+			 	:example_answer => "leń, bok, zlew, słoń, kot"
+ 		 	 }.to_s)
+Category.create!(name:  "divide_text",
+			 level_id: "2",
+			 title: "Podziel tekst",
+			 content: {
+			 	:example_title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
+			 	:example_content  => "Ciąg znaków: Jużskończyłsięrokszkolnyporozdaniuświadectwwszyscyodetchnęlizulgą.",
+			 	:example_answer => "już skończył się rok szkolny po rozdaniu świadectw wszyscy odetchnęli z ulgą"
+ 		 	 }.to_s)
+Category.create!(name:  "syllable",
+			 level_id: "2",
+			 title: "Sylaby",
+			 content: {
+			 	:example_title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:example_content  => "Wyrazy: karuzela, parasolka.",
+			 	:example_answer => "ka ru ze la, pa ra sol ka"
+ 		 	 }.to_s)
+Category.create!(name:  "remove_words",
+			 level_id: "2",
+			 title: "Niepasujące wyrazy",
+			 content: {
+			 	:example_title => "Usuń z tekstu wyrazy, które nie pasują. W odpowiedzi napisz poprawiony tekst, pamiętaj o znakach interpunkcyjnych.",
+			 	:example_content  => "Tekst: Janek poszedł nareszcie potrzeba spać. Marudził dość dobro długo, że nie jest głodny śpiący.",
+			 	:example_answer => "Janek poszedł nareszcie spać. Marudził dość długo, że nie jest śpiący."
+ 		 	 }.to_s)
+Category.create!(name:  "new_words",
+			 level_id: "2",
+			 title: "Nowe wyrazy",
+			 content: {
+			 	:example_title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:example_content  => "Wyraz: mandarynka.",
+			 	:example_answer => "dar, manna, kara, dama, rada."
  		 	 }.to_s)
 
 Task.create!(category_id: "1",
@@ -324,6 +365,191 @@ Task.create!(category_id: "5",
 			 	:content  => "Wyrazy: -lka , -róż , -ter , -yba , -top .",
 			 }.to_s,
 			 answer: "lka,róż,ter,yba,top")
+
+Task.create!(category_id: "6",
+			 content: {
+			 	:title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: motor, odkurzacz, pomoc, jeżyna, domofon.",
+			 }.to_s,
+			 answer: "motor,odkurzacz,pomoc,jeżyna,domofon")
+Task.create!(category_id: "6",
+			 content: {
+			 	:title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: parapet, list, joanna, skalpy, golf, traktor.",
+			 }.to_s,
+			 answer: "parapet,list,joanna,skalpy,golf,traktor")
+Task.create!(category_id: "6",
+			 content: {
+			 	:title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: deszczułka, butla, deser, bukszpan, topola.",
+			 }.to_s,
+			 answer: "deszczułka,butla,deser,bukszpan,topola")
+Task.create!(category_id: "6",
+			 content: {
+			 	:title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: maruda, ogród, barka, parapetówka, kocioł.",
+			 }.to_s,
+			 answer: "maruda,ogród,barka,parapetówka,kocioł")
+Task.create!(category_id: "6",
+			 content: {
+			 	:title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: lektura, jeleń, płotka, pułapka, wiatrak.",
+			 }.to_s,
+			 answer: "lektura,jeleń,płotka,pułapka,wiatrak")
+Task.create!(category_id: "6",
+			 content: {
+			 	:title => "Znajdź 5 rzeczowników, ukrytych w podanych wyrazach i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: tornister, ulewa, pomocnik, wyścigówka, maskotka.",
+			 }.to_s,
+			 answer: "tornister,ulewa,pomocnik,wyścigówka,maskotka")
+
+Task.create!(category_id: "7",
+			 content: {
+			 	:title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
+			 	:content  => "Ciąg znaków: MamakazałaKasiwłożyćkaloszeponieważpadałdeszcz.",
+			 }.to_s,
+			 answer: "mama kazała kasi włożyć kalosze ponieważ padał deszcz")
+Task.create!(category_id: "7",
+			 content: {
+			 	:title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
+			 	:content  => "Ciąg znaków: Dziecidługomusiałyszukaćswojegopsaponieważschowałsięwkrzakach.",
+			 }.to_s,
+			 answer: "dzieci długo musiały szukać swojego psa ponieważ schował się w krzakach")
+Task.create!(category_id: "7",
+			 content: {
+			 	:title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
+			 	:content  => "Ciąg znaków: Mamawróciłazmęczonazpracydlategodzieciprzyniosłyjejherbatę.",
+			 }.to_s,
+			 answer: "mama wróciła zmęczona z pracy dlatego dzieci przyniosły jej herbatę")
+Task.create!(category_id: "7",
+			 content: {
+			 	:title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
+			 	:content  => "Ciąg znaków: Jerzyzastanawiasięjakajestróżnicamiędzyjarzynąajeżyną.",
+			 }.to_s,
+			 answer: "jerzy zastanawia się jaka jest różnica między jarzyną a jeżyną")
+Task.create!(category_id: "7",
+			 content: {
+			 	:title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
+			 	:content  => "Ciąg znaków: Wpiekarnigdziewypiekanyjestchlebpracujemójtata.",
+			 }.to_s,
+			 answer: "w piekarni gdzie wypiekany jest chleb pracuje mój tata")
+
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: towarzyszka, pożyczka.",
+			 }.to_s,
+			 answer: "to wa rzysz ka, po życz ka")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: marmolada, ulica.",
+			 }.to_s,
+			 answer: "mar mo la da, u li ca")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: mydelniczka, prześcieradło.",
+			 }.to_s,
+			 answer: "my del nicz ka, prze ście ra dło")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: kanapa, kominiarz.",
+			 }.to_s,
+			 answer: "ka na pa, ko mi niarz")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: rogalik, książka.",
+			 }.to_s,
+			 answer: "ro ga lik, ksią żka")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: dywan, podłoga.",
+			 }.to_s,
+			 answer: "dy wan, po dło ga")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: mandarynka, lekarka.",
+			 }.to_s,
+			 answer: "man da ryn ka, le kar ka")
+Task.create!(category_id: "8",
+			 content: {
+			 	:title => "Podziel podane wyrazy na sylaby i wypisz je po przecinku w podanej kolejności, sylaby oddzielaj spacją.",
+			 	:content  => "Wyrazy: deska, kamizelka.",
+			 }.to_s,
+			 answer: "de ska, ka mi zel ka")
+
+Task.create!(category_id: "9",
+			 content: {
+			 	:title => "Usuń z tekstu wyrazy, które nie pasują. W odpowiedzi napisz poprawiony tekst, pamiętaj o znakach interpunkcyjnych.",
+			 	:content  => "Tekst: Lekarz zbadał wcale Zosię. Zosia ma będzie chore gardło.",
+			 }.to_s,
+			 answer: "Lekarz zbadał Zosię. Zosia ma chore gardło.")
+Task.create!(category_id: "9",
+			 content: {
+			 	:title => "Usuń z tekstu wyrazy, które nie pasują. W odpowiedzi napisz poprawiony tekst, pamiętaj o znakach interpunkcyjnych.",
+			 	:content  => "Tekst: Kasia lubi padać grać w klasy. Codziennie po lekcjach oglądać gra z koleżankami.",
+			 }.to_s,
+			 answer: "Kasia lubi grać w klasy. Codziennie po lekcjach gra z koleżankami.")
+Task.create!(category_id: "9",
+			 content: {
+			 	:title => "Usuń z tekstu wyrazy, które nie pasują. W odpowiedzi napisz poprawiony tekst, pamiętaj o znakach interpunkcyjnych.",
+			 	:content  => "Tekst: Maciek zbiera małe modele lubi samochodzików. Ma już jutro sporą kolekcję.",
+			 }.to_s,
+			 answer: "Maciek zbiera małe modele samochodzików. Ma już sporą kolekcję.")
+Task.create!(category_id: "9",
+			 content: {
+			 	:title => "Usuń z tekstu wyrazy, które nie pasują. W odpowiedzi napisz poprawiony tekst, pamiętaj o znakach interpunkcyjnych.",
+			 	:content  => "Tekst: Nadia lubi patrzy pracować w ogródku. Sieje malować i podlewa warzywa.",
+			 }.to_s,
+			 answer: "Nadia lubi pracować w ogródku. Sieje i podlewa warzywa.")
+Task.create!(category_id: "9",
+			 content: {
+			 	:title => "Usuń z tekstu wyrazy, które nie pasują. W odpowiedzi napisz poprawiony tekst, pamiętaj o znakach interpunkcyjnych.",
+			 	:content  => "Tekst: Dominik jest młodszym piesek bratem Nadii. Lubi bawić się pływa klockami.",
+			 }.to_s,
+			 answer: "Dominik jest młodszym bratem Nadii. Lubi bawić się klockami.")
+
+# Task.create!(category_id: "10",
+# 			 content: {
+# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+# 			 	:content  => "Wyraz: bibliotekarz.",
+# 			  }.to_s,
+# 			 answer: "bibliotekarz")
+Task.create!(category_id: "10",
+			 content: {
+			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:content  => "Wyraz: kokardka.",
+			  }.to_s,
+			 answer: "kokardka")
+# Task.create!(category_id: "10",
+# 			 content: {
+# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+# 			 	:content  => "Wyraz: margaryna.",
+# 			  }.to_s,
+# 			 answer: "margaryna")
+# Task.create!(category_id: "10",
+# 			 content: {
+# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+# 			 	:content  => "Wyraz: koszulka.",
+# 			  }.to_s,
+# 			 answer: "koszulka")
+# Task.create!(category_id: "10",
+# 			 content: {
+# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+# 			 	:content  => "Wyraz: balerina.",
+# 			  }.to_s,
+# 			 answer: "balerina")
+# Task.create!(category_id: "10",
+# 			 content: {
+# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+# 			 	:content  => "Wyraz: piaskarka.",
+# 			  }.to_s,
+# 			 answer: "piaskarka")
 
 i = 1
 File.open("odm1.txt", "r").each_line do |row|
