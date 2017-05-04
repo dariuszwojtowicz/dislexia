@@ -4,6 +4,9 @@
     <div id="task">
       <h2 class="title"><%= eval(@task["content"])[:title] %></h2>
       <h3 class="content"><%= eval(@task["content"])[:content] %></h3>
+      <% if eval(@task["content"])[:content2] != nil %>
+       <h3 class="content"><%= eval(@task["content"])[:content2] %></h3>
+      <% end %>
       <br /><br /><br /><br />
       <form class="answer" id="answer" action="/tasks/<%= @task["id"] %>/answer" accept-charset="UTF-8" method="post">
       	<%= token_tag %> 
@@ -14,6 +17,9 @@
       <h3 class="example">Przykład</h3>
       <p class="example_title"><%= eval(@category["content"])[:example_title] %></p>
       <p class="example_content"><%= eval(@category["content"])[:example_content] %></p>
+      <% if eval(@category["content"])[:example_content2] != nil %>
+       <p class="example_content"><%= eval(@category["content"])[:example_content2] %></p>
+      <% end %>
       <p class="example_answer">Poprawna odpowiedź: <%= eval(@category["content"])[:example_answer] %></p>
     </div>
 </div>

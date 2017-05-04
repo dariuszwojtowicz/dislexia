@@ -170,7 +170,7 @@ class TasksController < ApplicationController
         end
         return 1
       elsif type == "divide_text"
-        task_answers = task_answer.split(" ")
+task_answers = task_answer.split(" ")
         user_answers = user_answer.split(" ")
         user_answers.each_with_index do |ua, index|
           ua.strip!
@@ -208,7 +208,7 @@ class TasksController < ApplicationController
           end
         end
         return 1
-      elsif type == "remove_words"
+      elsif type == "remove_words" || type == "fill" || type == "fill_gaps"
         task_answers = task_answer.split(" ")
         user_answers = user_answer.split(" ")
         user_answers.each_with_index do |ua, index|
@@ -252,6 +252,32 @@ class TasksController < ApplicationController
           ua_is_in_db_words = ActiveRecord::Base.connection.execute select_sql
           ua_is_in_db_words = ua_is_in_db_words.to_a  
           if ua_is_in_db_words.size == 0
+            return 0
+          end
+        end
+        return 1
+      elsif type == "rz_r" || type == "z_g"
+        task_answers = task_answer.split(",")
+        user_answer.strip!
+        user_answer.downcase!
+        task_answers.each do |ta|
+          ta.strip!
+          ta.downcase!
+          if user_answer == ta
+            return 1
+          end
+        end
+        return 0
+      elsif type == "order"
+        task_answers = task_answer.split(",")
+        user_answers = user_answer.split(",")
+        user_answers.each_with_index do |ua, index|
+          ua.strip!
+          ua.downcase!
+          ta = task_answers[index]
+          ta.strip!
+          ta.downcase!          
+          if ua != ta
             return 0
           end
         end

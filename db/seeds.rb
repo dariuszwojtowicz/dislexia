@@ -55,6 +55,7 @@ Category.create!(name:  "add_beginnings",
 			 	:example_content  => "Wyrazy: -bel , -rko , -żko , -ska , -wan .",
 			 	:example_answer => "kabel, wiaderko, łóżko, deska, dywan"
  		 	 }.to_s)
+
 Category.create!(name:  "find_words_in_words",
 			 level_id: "2",
 			 title: "Słowa ukryte w słowach",
@@ -69,7 +70,7 @@ Category.create!(name:  "divide_text",
 			 content: {
 			 	:example_title => "Podziel podany ciąg znaków na wyrazy, tak aby powstały sensowne zdania, następnie napisz te zdania w odpowiedzi.",
 			 	:example_content  => "Ciąg znaków: Jużskończyłsięrokszkolnyporozdaniuświadectwwszyscyodetchnęlizulgą.",
-			 	:example_answer => "już skończył się rok szkolny po rozdaniu świadectw wszyscy odetchnęli z ulgą"
+			 	:example_answer => "Już skończył się rok szkolny, po rozdaniu świadectw wszyscy odetchnęli z ulgą."
  		 	 }.to_s)
 Category.create!(name:  "syllable",
 			 level_id: "2",
@@ -93,7 +94,49 @@ Category.create!(name:  "new_words",
 			 content: {
 			 	:example_title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
 			 	:example_content  => "Wyraz: mandarynka.",
-			 	:example_answer => "dar, manna, kara, dama, rada."
+			 	:example_answer => "dar, manna, kara, dama, rada"
+ 		 	 }.to_s)
+
+Category.create!(name:  "rz_r",
+			 level_id: "3",
+			 title: "Wymieniamy rz na r",
+			 content: {
+			 	:example_title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:example_content  => "Wyraz: piłkarz.",
+			 	:example_answer => "piłkarski"
+ 		 	 }.to_s)
+Category.create!(name:  "order",
+			 level_id: "3",
+			 title: "Alfabetycznie!",
+			 content: {
+			 	:example_title => "Ułóż podane wyrazy w kolejności alfabetycznej i wypisz je po przecinku.",
+			 	:example_content  => "Wyrazy: rześki, narzeczona, zwierzę, spojrzenie, zarzut, burza, Rzym, egzemplarz.",
+			 	:example_answer => "burza, egzemplarz, narzeczona, rześki, Rzym, spojrzenie, zarzut, zwierzę"
+ 		 	 }.to_s)
+Category.create!(name:  "fill",
+			 level_id: "3",
+			 title: "Odpowiednie formy wyrazów",
+			 content: {
+			 	:example_title => "Uzupełnij zdanie wyrazami w nawiasach, odpowiednio zmieniając ich formę.",
+			 	:example_content  => "Zdanie: Asia nie lubi (lody).",
+			 	:example_answer => "Asia nie lubi lodów."
+ 		 	 }.to_s)
+Category.create!(name:  "fill_gaps",
+			 level_id: "3",
+			 title: "Uzupełnij tekst",
+			 content: {
+			 	:example_title => "Uzupełnij tekst podanymi wyrazami, nie zmieniając ich formy.",
+			 	:example_content  => "Tekst: Zimą dzień jest bardzo ... . Tęgi ... szczypał w nos i uszy. Karol planował długą ... .",
+			 	:example_content2 => "Wyrazy: mróz, podróż, krótki.",
+			 	:example_answer => "Zimą dzień jest bardzo krótki. Tęgi mróz szczypał w nos i uszy. Karol planował długą podróż."
+ 		 	 }.to_s)
+Category.create!(name:  "z_g",
+			 level_id: "3",
+			 title: "Wymieniamy ż na g",
+			 content: {
+			 	:example_title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana Ż na G.",
+			 	:example_content  => "Wyraz: książka.",
+			 	:example_answer => "księga"
  		 	 }.to_s)
 
 Task.create!(category_id: "1",
@@ -514,42 +557,220 @@ Task.create!(category_id: "9",
 			 }.to_s,
 			 answer: "Dominik jest młodszym bratem Nadii. Lubi bawić się klockami.")
 
-# Task.create!(category_id: "10",
-# 			 content: {
-# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
-# 			 	:content  => "Wyraz: bibliotekarz.",
-# 			  }.to_s,
-# 			 answer: "bibliotekarz")
+Task.create!(category_id: "10",
+			 content: {
+			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:content  => "Wyraz: bibliotekarz.",
+			  }.to_s,
+			 answer: "bibliotekarz")
 Task.create!(category_id: "10",
 			 content: {
 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
 			 	:content  => "Wyraz: kokardka.",
 			  }.to_s,
 			 answer: "kokardka")
-# Task.create!(category_id: "10",
-# 			 content: {
-# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
-# 			 	:content  => "Wyraz: margaryna.",
-# 			  }.to_s,
-# 			 answer: "margaryna")
-# Task.create!(category_id: "10",
-# 			 content: {
-# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
-# 			 	:content  => "Wyraz: koszulka.",
-# 			  }.to_s,
-# 			 answer: "koszulka")
-# Task.create!(category_id: "10",
-# 			 content: {
-# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
-# 			 	:content  => "Wyraz: balerina.",
-# 			  }.to_s,
-# 			 answer: "balerina")
-# Task.create!(category_id: "10",
-# 			 content: {
-# 			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
-# 			 	:content  => "Wyraz: piaskarka.",
-# 			  }.to_s,
-# 			 answer: "piaskarka")
+Task.create!(category_id: "10",
+			 content: {
+			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:content  => "Wyraz: margaryna.",
+			  }.to_s,
+			 answer: "margaryna")
+Task.create!(category_id: "10",
+			 content: {
+			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:content  => "Wyraz: koszulka.",
+			  }.to_s,
+			 answer: "koszulka")
+Task.create!(category_id: "10",
+			 content: {
+			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:content  => "Wyraz: balerina.",
+			  }.to_s,
+			 answer: "balerina")
+Task.create!(category_id: "10",
+			 content: {
+			 	:title => "Z liter występujących w danym wyrazie ułóż 5 nowych rzeczowników i wypisz je po przecinku.",
+			 	:content  => "Wyraz: piaskarka.",
+			  }.to_s,
+			 answer: "piaskarka")
+
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: wierzący.",
+			  }.to_s,
+			 answer: "wiara,wierni,wierny,wierna,wiarą,wiarę,wierną,wiernym,wiernymi")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: tancerz.",
+			  }.to_s,
+			 answer: "tancerka,tancereczka,tancerką,tancerkę,tancereczką,tancereczkę,tancerkami,tancereczkami")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: zielarz.",
+			  }.to_s,
+			 answer: "zielarka,zielarnia,zielarski,zielarnią,zielarnię,zielarką,zielarkę,zielarniami,zielarkami")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: malarz.",
+			  }.to_s,
+			 answer: "malarka,malarski,malarką,malarkę,malarki,malarkami,malarskimi")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: murarz.",
+			  }.to_s,
+			 answer: "murarski,murarka,murarska,murarką,murarkę,murarskimi,murarki,murarkami")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: morze.",
+			  }.to_s,
+			 answer: "morska,morski,morskie,morskimi,morską")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: pasterz.",
+			  }.to_s,
+			 answer: "pasterka,pasterski,pasterska,pasterskimi,pasterską,pasterkę,pasterskie,pasterką,pasterce")
+Task.create!(category_id: "11",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana RZ na R.",
+			 	:content  => "Wyraz: którzy.",
+			  }.to_s,
+			 answer: "który,która,które,którą,którymi")
+
+Task.create!(category_id: "12",
+			 content: {
+			 	:title => "Ułóż podane wyrazy w kolejności alfabetycznej i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: ściana, stołek, but, wiatr, kocioł, zamieć, zakwas, anioł.",
+			  }.to_s,
+			 answer: "anioł,but,kocioł,stołek,ściana,wiatr,zakwas,zamieć")
+Task.create!(category_id: "12",
+			 content: {
+			 	:title => "Ułóż podane wyrazy w kolejności alfabetycznej i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: nogi, nogawka, usta, długopis, mama, marysia, okno, wiatr.",
+			  }.to_s,
+			 answer: "długopis,mama,marysia,nogawka,nogi,okno,usta,wiatr")
+Task.create!(category_id: "12",
+			 content: {
+			 	:title => "Ułóż podane wyrazy w kolejności alfabetycznej i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: chmura, drzewo, drabina, czoło, plecak, ryba, komputer, drukarka.",
+			  }.to_s,
+			 answer: "chmura,czoło,drabina,drukarka,drzewo,komputer,plecak,ryba")
+Task.create!(category_id: "12",
+			 content: {
+			 	:title => "Ułóż podane wyrazy w kolejności alfabetycznej i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: ręka, borsuk, komin, klocek, szal, buty, ołówek, las.",
+			  }.to_s,
+			 answer: "borsuk,buty,klocek,komin,las,ołówek,ręka,szal")
+Task.create!(category_id: "12",
+			 content: {
+			 	:title => "Ułóż podane wyrazy w kolejności alfabetycznej i wypisz je po przecinku.",
+			 	:content  => "Wyrazy: pomoc, litery, lektura, arbuz, znaki, nazwa, błędy, błąd.",
+			  }.to_s,
+			 answer: "arbuz,błąd,błędy,lektura,litery,nazwa,pomoc,znaki")
+
+Task.create!(category_id: "13",
+			 content: {
+			 	:title => "Uzupełnij zdanie wyrazami w nawiasach, odpowiednio zmieniając ich formę.",
+			 	:content  => "Zdanie: Mama ma dużo różnych (kłopoty) ale tata zawsze jej (pomoc).",
+			  }.to_s,
+			 answer: "Mama ma dużo różnych kłopotów ale tata zawsze jej pomaga.")
+Task.create!(category_id: "13",
+			 content: {
+			 	:title => "Uzupełnij zdanie wyrazami w nawiasach, odpowiednio zmieniając ich formę.",
+			 	:content  => "Zdanie: Kasia nie lubi jeść (owoce) ale bardzo lubi lody (owoc).",
+			  }.to_s,
+			 answer: "Kasia nie lubi jeść owoców ale bardzo lubi lody owocowe.")
+Task.create!(category_id: "13",
+			 content: {
+			 	:title => "Uzupełnij zdanie wyrazami w nawiasach, odpowiednio zmieniając ich formę.",
+			 	:content  => "Zdanie: Olek bardzo lubi grać w piłkę ze swoimi (koledzy).",
+			  }.to_s,
+			 answer: "Olek bardzo lubi grać w piłkę ze swoimi kolegami.")
+Task.create!(category_id: "13",
+			 content: {
+			 	:title => "Uzupełnij zdanie wyrazami w nawiasach, odpowiednio zmieniając ich formę.",
+			 	:content  => "Zdanie: Tomek narysował burzowe (chmura) oraz piękną (tęcza).",
+			  }.to_s,
+			 answer: "Tomek narysował burzowe chmury oraz piękną tęczę.")
+Task.create!(category_id: "13",
+			 content: {
+			 	:title => "Uzupełnij zdanie wyrazami w nawiasach, odpowiednio zmieniając ich formę.",
+			 	:content  => "Zdanie: Mama nie lubi jeść (ogórki), zdecydowanie woli (pomidor).",
+			  }.to_s,
+			 answer: "Mama nie lubi jeść ogórków, zdecydowanie woli pomidory.")
+
+Task.create!(category_id: "14",
+			 content: {
+			 	:title => "Uzupełnij tekst podanymi wyrazami, nie zmieniając ich formy.",
+			 	:content  => "Tekst: Kasia ma ... sweterek. W garażu stoi czerwony ... . Marek ma zielony ... .",
+			 	:content2 => "Wyrazy: samochód, różowy, ołówek.",
+			  }.to_s,
+			 answer: "Kasia ma różowy sweterek. W garażu stoi czerwony samochód. Marek ma zielony ołówek.")
+Task.create!(category_id: "14",
+			 content: {
+			 	:title => "Uzupełnij tekst podanymi wyrazami, nie zmieniając ich formy.",
+			 	:content  => "Tekst: Na grządce rosną zielone ... . W mieście są ... różnej wysokości. W ogrodzie kwitnie czerwona ... .",
+			 	:content2 => "Wyrazy: budynki, róża, ogórki.",
+			  }.to_s,
+			 answer: "Na grządce rosną zielone ogórki. W mieście są budynki różnej wysokości. W ogrodzie kwitnie czerwona róża.")
+Task.create!(category_id: "14",
+			 content: {
+			 	:title => "Uzupełnij tekst podanymi wyrazami, nie zmieniając ich formy.",
+			 	:content  => "Tekst: Oli podoba się różowa ... . Na gałązce siedzi ... . Babcia ma spracowane ... .",
+			 	:content2 => "Wyrazy: wróbel, ręce, sukienka.",
+			  }.to_s,
+			 answer: "Oli podoba się różowa sukienka. Na gałązce siedzi wróbel. Babcia ma spracowane ręce.")
+Task.create!(category_id: "14",
+			 content: {
+			 	:title => "Uzupełnij tekst podanymi wyrazami, nie zmieniając ich formy.",
+			 	:content  => "Tekst: Silny ... wiał dziś w górach. Na biurku leży ... Dominika. Dziś w nocy był ... .",
+			 	:content2 => "Wyrazy: piórnik, wiatr, mróz.",
+			  }.to_s,
+			 answer: "Silny wiatr wiał dziś w górach. Na biurku leży piórnik Dominika. Dziś w nocy był mróz.")
+Task.create!(category_id: "14",
+			 content: {
+			 	:title => "Uzupełnij tekst podanymi wyrazami, nie zmieniając ich formy.",
+			 	:content  => "Tekst: Na klombie rosną kolorowe ... . Nad stawem skacze zielona ... . Pracownicy wykopali głęboki ... .",
+			 	:content2 => "Wyrazy: dół, kwiatki, żaba.",
+			  }.to_s,
+			 answer: "Na klombie rosną kolorowe kwiatki. Nad stawem skacze zielona żaba. Pracownicy wykopali głęboki dół.")
+
+Task.create!(category_id: "15",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana Ż na G.",
+			 	:content  => "Wyraz: odważny.",
+			  }.to_s,
+			 answer: "odwaga,odwagą,odwagę,odwagi,odwagami")
+Task.create!(category_id: "15",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana Ż na G.",
+			 	:content  => "Wyraz: dróżka.",
+			  }.to_s,
+			 answer: "droga,drogi,drogą,drogę,drogami")
+Task.create!(category_id: "15",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana Ż na G.",
+			 	:content  => "Wyraz: potężny.",
+			  }.to_s,
+			 answer: "potęga,potęgi,potęgę,potęgą,potęgami")
+Task.create!(category_id: "15",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana Ż na G.",
+			 	:content  => "Wyraz: bieżnia.",
+			  }.to_s,
+			 answer: "biegać,bieg,biegi,biegami,biegowy")
+Task.create!(category_id: "15",
+			 content: {
+			 	:title => "Dla podanego wyrazu podaj wyraz pokrewny, tak aby zachodziła wymiana Ż na G.",
+			 	:content  => "Wyraz: krążek.",
+			  }.to_s,
+			 answer: "krąg,kręgi,krągły,krągła,krągłe,kręgami")
 
 i = 1
 File.open("odm1.txt", "r").each_line do |row|
@@ -571,33 +792,4 @@ File.open("odm1.txt", "r").each_line do |row|
   ActiveRecord::Base.connection.execute insert_sql
   puts i
   i = i + 1
-end   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+end

@@ -6,6 +6,10 @@ class CategoriesController < ApplicationController
     @level = Level.find(@category.level_id)
     max_points = 5 * @level.points
     categories_points = get_category_points(@category.level_id)    
+    if @category.level_id.to_s != current_user.level.to_s
+      flash[:danger] = "Ten poziom jest zablokowany."
+      redirect_to root_url
+    end
     if categories_points[params[:id].to_i] == max_points
       flash[:danger] = "Ta kategoria została ukończona."
       redirect_to "/levels/" + @category.level_id.to_s
