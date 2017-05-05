@@ -170,7 +170,7 @@ class TasksController < ApplicationController
         end
         return 1
       elsif type == "divide_text"
-task_answers = task_answer.split(" ")
+        task_answers = task_answer.split(" ")
         user_answers = user_answer.split(" ")
         user_answers.each_with_index do |ua, index|
           ua.strip!

@@ -10,5 +10,15 @@ class CreateUsers < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    create_table :day_master do |t|
+      t.string :name
+      t.string :day
+    end
+
+    create_table :month_master do |t|
+      t.string :name
+      t.string :day
+    end
   end
 end

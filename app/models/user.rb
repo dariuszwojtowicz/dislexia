@@ -16,6 +16,12 @@ class User < ApplicationRecord
 		end
 	end
 
+	def increase_level
+		userr = User.find(1)
+		userr.level = userr.level + 1
+		userr.save
+	end
+
 	def remember
 	  self.remember_token = User.new_token
       update_attribute(:remember_digest, User.digest(remember_token))

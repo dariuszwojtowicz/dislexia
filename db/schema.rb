@@ -24,11 +24,21 @@ ActiveRecord::Schema.define(version: 20170424111729) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "day_master", force: :cascade do |t|
+    t.string "name"
+    t.string "day"
+  end
+
   create_table "levels", force: :cascade do |t|
     t.string   "name"
     t.integer  "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "month_master", force: :cascade do |t|
+    t.string "name"
+    t.string "day"
   end
 
   create_table "tasks", force: :cascade do |t|

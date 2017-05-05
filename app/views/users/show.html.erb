@@ -17,6 +17,8 @@
         		<li>Rok urodzenia: <%= @user.year || "Nie podano" %></li>
         		<li>Poziom: <%= @user.level || "Użytkownik nie jest graczem" %></li>
             <li>Liczba punktow: <%= user_all_points(@user) || "Użytkownik nie jest graczem" %></li>
+            <li id="day_master">Liczba tytułów <span>Najlepszy Gracz Dnia</span>: <%= @day_orders_count %></li>
+            <li id="month_master">Liczba tytułów <span>Najlepszy Gracz Miesiąca</span>: <%= @month_orders_count %></li>
         	</ul>
       </div>
     </aside>
