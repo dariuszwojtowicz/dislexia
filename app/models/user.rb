@@ -1,7 +1,10 @@
 class User < ApplicationRecord
 	attr_accessor :remember_token
-	validates :login,  presence: true, length: { maximum: 30 }, uniqueness: { case_sensitive: false }
-	validates :password, :presence => true, :confirmation => true, length: {minimum: 6}, :if => :password
+	validates :login,  presence: { message: "Login jest wymagany" }, length: { maximum: 30, message: "Login nie może być dłuższy niż 30 znaków" }, 
+					   uniqueness: { case_sensitive: false, message: "Podany login już istnieje. Podaj inny." }
+	validates :password, presence: { message: "Hasło jest wymagane" }, confirmation: { message: "Hasło i potwierdzenie hasła nie są identyczne" },
+      					 length: { minimum: 6, message: "Hasło nie może być krótsze niż 6 znaków" }, :if => :password
+	validates :password_confirmation, presence: { message: "Potwierdzenie hasła jest wymagane" }, :if => :password_confirmation
 	has_secure_password
 
   	class << self

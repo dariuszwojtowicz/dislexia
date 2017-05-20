@@ -230,11 +230,10 @@ div.center.example {
 }
 
 .ranking {
-  background-color: $gray-high-light;
   display: inline-block;
-  width: 33%;
+  width: 32%;
   text-align: left;
-  color: white;
+  color: black;
   vertical-align: top;
   height: 300px;
 }
@@ -243,17 +242,144 @@ div.center.example {
   list-style: none;
 }
 
+#task {
+  .title {
+    color: #de3c3c;
+  }
+  .content {
+    color: #23c830;
+  }
+}
+
+#rankings {
+  .ranking {
+    border-radius: 20px 0 20px 0;
+    margin-right: 10px;
+  }
+  .ranking.global {
+    background-color: coral;
+  }
+  .ranking.month {
+    background-color: cornflowerblue;
+  }
+  .ranking.day {
+    background-color: #ec61e0;
+  }
+}
+
 .ranking_title {
   text-align: center;
   width: 100%;
   float: center;
-  padding: 20px;
+  padding: 26px;
   font-size: 20px;
 }
 
+#rankings .ranking li a {
+  font-weight: bold;
+  color: white;
+}
+
+#rankings .ranking li a:hover {
+  color: black;
+}
+
+.user_info {
+  h1 {
+    margin-top: 25px;
+    margin-left: 110px;
+  }
+  height: 200px;
+  div {
+    padding-top: 40px;
+    font-size: 17px;
+    span {
+      color: green;
+    }
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #89DD21;
+  }
+}
+
 .jumbotron.center.show_user #user_info {
-    text-align: left;
-    padding-top: 15px;
+  text-align: left;
+  padding-top: 15px;
+  color: black;
+  min-height: 250px;
+  background-color: #50c7ff;
+  border-radius: 0 20px 0 20px;
+  padding-left: 10px;
+  a {
+    color: white;
+    text-decoration: underline;
+    float: right;
+    padding-right: 10px;
+  }
+  a:hover {
+    color: black;
+  }
+  li {
+    font-size: large;
+    line-height: 39px;
+  }
+}
+
+ul.navbar-nav li.circle > a {
+  color: white;
+  font-weight: bold;
+}
+
+ul.navbar-nav li.circle {
+  border-radius: 100px;
+  width: 40px;
+  margin-right: 4px;
+  text-align: center;
+  height: 40px;
+  padding-bottom: 25px;
+  margin-top: 4px;
+}
+
+li.circle.z {
+  background-color: #d73737;
+}
+
+li.circle.p {
+  background-color: #f05b42;
+}
+
+li.circle.r {
+  background-color: #e3933a;
+}
+
+li.circle.o {
+  background-color: #e4c53f;
+}
+
+li.circle:hover {
+  background-color: #222222;
+}
+
+li.day_medal {
+    background-image: url("day_medal.png");
+    width: 140px;
+    height: 140px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 49%;
+}
+
+li.month_medal {
+    background-image: url("month_medal.png");
+    width: 140px;
+    height: 140px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 49%;
 }
 
 .jumbotron.center.show_user a {

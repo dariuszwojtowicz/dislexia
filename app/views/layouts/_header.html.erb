@@ -4,10 +4,10 @@
   	<nav>
   		<ul class="nav navbar-nav navbar-right">
 	  		<% if logged_in? %>
-	          <li><%= link_to "Z", '/' %></li>
-	          <li><%= link_to "P", current_user %></li>
-	          <li><%= link_to "R", '/rankings' %></li>
-	          <li><%= link_to "O", '/about' %></li>
+	          <li class="circle z"><%= link_to "Z", '/', title: 'Zadania - poziomy' %></li>
+	          <li class="circle p"><%= link_to "P", current_user, title: 'Profil' %></li>
+	          <li class="circle r"><%= link_to "R", '/rankings', title: 'Rankingi' %></li>
+	          <li class="circle o"><%= link_to "O", '/about', title: 'O nas' %></li>
 	          <li><%= link_to "Wyloguj", logout_path, method: "delete" %></li>
 	        <% else %>
 	          <li><%= link_to "Zaloguj", login_path %></li>

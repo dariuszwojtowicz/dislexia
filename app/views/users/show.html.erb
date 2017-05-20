@@ -5,22 +5,45 @@
       <section class="user_info">
           <%= gravatar_for @user %>
           <h1><%= @user.login %></h1>
-          <% if current_user.id == @user.id %>
-            <%= link_to "Zmień informacje o sobie", edit_user_path(current_user) %>
-          <% end %>
       </section>
       <div id="user_info">
       	<ul>
-        		<li>Imię: <%= @user.name || "Nie podano" %></li>
-        		<li>Nazwisko: <%= @user.surname || "Nie podano" %></li>
-        		<li>Email: <%= @user.email || "Nie podano" %></li>
+        		<li>Imię: <%= @user.name.to_s.empty? ? "Nie podano" : @user.name %></li>
+        		<li>Nazwisko: <%= @user.surname.to_s.empty? ? "Nie podano" : @user.surname %></li>
+        		<li>Email: <%= @user.email.to_s.empty? ? "Nie podano" : @user.email %></li>
         		<li>Rok urodzenia: <%= @user.year || "Nie podano" %></li>
-        		<li>Poziom: <%= @user.level || "Użytkownik nie jest graczem" %></li>
-            <li>Liczba punktow: <%= user_all_points(@user) || "Użytkownik nie jest graczem" %></li>
-            <li id="day_master">Liczba tytułów <span>Najlepszy Gracz Dnia</span>: <%= @day_orders_count %></li>
-            <li id="month_master">Liczba tytułów <span>Najlepszy Gracz Miesiąca</span>: <%= @month_orders_count %></li>
         	</ul>
-      </div>
+          <br />
+          <% if current_user.id == @user.id %>
+            <%= link_to "Zmień informacje o sobie", edit_user_path(current_user) %>
+          <% end %>
+      </div>     
+    </aside>
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h2>Poziom: <%= @user.level || "Użytkownik nie jest graczem" %></h2>
+        <div id="day_master">Liczba tytułów <span>Najlepszy Gracz Dnia</span><%= @day_orders_count %></div>
+      </section>
+      <div id="user_info">
+        <ul>
+          <% @day_orders_count.times do %>
+            <li class="day_medal"></li>
+          <% end %>
+        </ul>
+      </div>     
+    </aside>
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h2>Liczba punktow: <%= user_all_points(@user) || "Użytkownik nie jest graczem" %></h2>
+        <div id="month_master">Liczba tytułów <span>Najlepszy Gracz Miesiąca</span><%= @month_orders_count %></div>
+      </section>
+      <div id="user_info">
+        <ul>
+          <% @month_orders_count.times do %>
+            <li class="month_medal"></li>
+          <% end %>
+        </ul>
+      </div>     
     </aside>
   </div>
 </div>

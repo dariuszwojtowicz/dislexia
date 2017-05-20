@@ -100,7 +100,7 @@ class UsersController < ApplicationController
         @day_ranking.push({ "login" => key, "points" => value["points"], "id" => value["id"] })
       end
       @day_ranking.sort_by { |row| row["points"] } 
-      return @day_ranking[0]["login"]  
+      return @day_ranking[0] != nil ? @day_ranking[0]["login"] : 0
     end
 
     def best_last_month
@@ -128,7 +128,7 @@ class UsersController < ApplicationController
         @month_ranking.push({ "login" => key, "points" => value["points"], "id" => value["id"] })
       end
       @month_ranking.sort_by { |row| row["points"] } 
-      return @month_ranking[0]["login"]
+      return @month_ranking[0] != nil ? @month_ranking[0]["login"] : 0
     end
 
     def user_params
